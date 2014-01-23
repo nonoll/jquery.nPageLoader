@@ -27,8 +27,7 @@ $.nPageLoader.init();
 // 이벤트 체크
 $.nPageLoader.addEventListener( "event", listener );
   event > "progress"
-            <ul>
-              <li>event       : 이벤트 타입</li>
+              +event       : 이벤트 타입
               <li>byteLoaded  : 로드된 byte</li>
               <li>byteTotal   : 로드할 총 byte</li>
               <li>percent     : 로드된 퍼센트</li>
