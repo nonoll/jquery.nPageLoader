@@ -40,7 +40,6 @@ $.nPageLoader.addEventListener( "event", listener );
 **기본 사용**
 -
 $.nPageLoader 를 선언 실행하고
-
 addEventListener 를 이용 이벤트를 체크한다
 ```
 var pageLoader = $.nPageLoader;
