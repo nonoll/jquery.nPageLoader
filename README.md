@@ -27,21 +27,20 @@ $.nPageLoader.init();
 // 이벤트 체크
 $.nPageLoader.addEventListener( "event", listener );
   event > "progress"
-              + event       : 이벤트 타입
-              <li>byteLoaded  : 로드된 byte</li>
-              <li>byteTotal   : 로드할 총 byte</li>
-              <li>percent     : 로드된 퍼센트</li>
-            </ul>
+              event       : 이벤트 타입
+              byteLoaded  : 로드된 byte
+              byteTotal   : 로드할 총 byte
+              percent     : 로드된 퍼센트
         > "complete"
-            <ul>
-              <li>event       : 이벤트 타입</li>
-              <li>percent     : 로드된 퍼센트</li>
-            </ul>
+              event       : 이벤트 타입
+              percent     : 로드된 퍼센트
 ```
 
 ### 사용법
 **기본 사용**
+-
 $.nPageLoader 를 선언 실행하고
+
 addEventListener 를 이용 이벤트를 체크한다
 ```
 var pageLoader = $.nPageLoader;
