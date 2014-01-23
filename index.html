@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0"/>
+	<title>jquery.nPageLoader.js</title>
+	<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	</style>
+	<script src="js/jquery-1.10.1.js"></script>
+	<script src="js/jquery.nPageLoader.js"></script>
+	<script>
+		var opt = {
+			// 속도체크용 이미지 url
+			url : "http://www.google.com/images/srpr/nav_logo14.png",
+			// 속도체크용 이미지 용량 kb
+			urlSize : 28.6,
+			// 실제 문서 예상 용량 kb
+			size : 155,
+			// kb 단위 사용
+			kb : true,
+			// 캐시 사용
+			noCache : true,
+			// console log
+			log : false
+		};
+		
+		var pageLoader = $.nPageLoader;
+		pageLoader.init({
+			// 속도체크용 이미지 url
+			url : "http://www.google.com/images/srpr/nav_logo14.png",
+			// 속도체크용 이미지 용량 kb
+			urlSize : 28.6,
+			// 실제 문서 예상 용량 kb
+			size : 155,
+			// console log
+			log : true
+		});
+		pageLoader.addEventListener( "progress", onProgress );
+		pageLoader.addEventListener( "complete", onComplete );
+		
+		function onProgress( e ){
+			$("#pageLoader_status").html(e.percent + "%");
+			$("#pageLoader_bar").width(e.percent + "%");
+		}
+		
+		function onComplete( e ){
+			$("#pageLoader_status").html(e.event);
+			$("#pageLoader_bar").css("background-color","blue");
+		}
+	</script>
+</head>
+<body>
+	<h1 id="pageLoader_status"></h1>
+	<div id="pageLoader_bar" style="width:0%; height:100px; background-color:red;"></div>
+</body>
+</html>
