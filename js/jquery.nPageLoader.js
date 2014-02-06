@@ -1,5 +1,5 @@
 /**
- * @pluginName	jquery.nPageLoader.js
+ * @PluginName	jquery.nPageLoader.js
  * @Requires	jQuery v1.0.4 ~ v1.10.2
  * @Author		nonoll ( http://usefl.co.kr - hyunkwan Roh )
  * @Version		1.0.0
