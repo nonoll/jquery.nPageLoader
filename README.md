@@ -97,6 +97,7 @@ $.nPageLoader.defaults = {
 
 ##History
 1. 2014.01.23 첫 버전 등록
+2. 2014.04.14 오류 수정 등록
 
 
 
