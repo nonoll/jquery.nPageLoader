@@ -2,7 +2,7 @@
  * @PluginName	jquery.nPageLoader.js
  * @Requires	jQuery v1.0.4 ~ v1.10.2
  * @Author		nonoll ( http://usefl.co.kr - hyunkwan Roh )
- * @Version		1.0.0
+ * @Version		1.0.1
  * @Date		2014.01.22
  */
 (function( $, window ) {
@@ -40,9 +40,6 @@
 			_download.onload = function(e) {
 				_endTime = _instance.getTime();
 				_instance.checkSpeed();
-				
-				_startTime = _instance.getTime();
-				_instance.progress();
 			}
 			
 			_startTime = this.getTime();
@@ -57,13 +54,13 @@
 		progress : function() {
 			_endTime = _instance.getTime();
 			var duration = ( _endTime - _startTime );
-			var bitsLoaded = _instance.options.size * 8;
-			var loaded = Math.round( bitsLoaded * duration ) / 1000;
-			_percent = Math.round( ( loaded / bitsLoaded ) * 100 );
+			var bitsLoaded = Math.round( _downloadSpeed * duration ) / 1000;
+			var bitsTotal = _instance.options.size;
+			_percent = Math.round( ( bitsLoaded / bitsTotal ) * 100 );
 			_percent = _percent >= 100 ? 100 : _percent;
-			
+
 			if( _rtnFnc.progress ) {
-				_rtnFnc.progress( { event: "progress", byteLoaded: loaded, byteTotal: bitsLoaded, percent: _percent } );
+				_rtnFnc.progress( { event: "progress", byteLoaded: bitsLoaded/1024, byteTotal: bitsTotal/1024, percent: _percent } );
 			}
 			
 			_instance.log( "progress : " + _percent );
@@ -90,12 +87,15 @@
 			var speedBps = Math.round( bitsLoaded / duration );
 			var speedKbps = ( speedBps / 1024 ).toFixed(2);
 			var speedMbps = ( speedKbps / 1024 ).toFixed(2);
-			_downloadSpeed = speedKbps;
+			_downloadSpeed = speedBps;//speedKbps;
 			this.log( "Your connection speed is: \n" +
 								duration + " s\n"   + 
 								speedBps + " bps\n"   + 
 								speedKbps + " kbps\n" + 
 								speedMbps + " Mbps" );
+
+			_startTime = _instance.getTime();
+			_instance.progress();
 		},
 		getTime : function() {
 			return new Date().getTime();
@@ -125,7 +125,7 @@
 					break;
 			}
 		},
-		version : "1.0.0"
+		version : "1.0.1"
 	}
 	
 	$.nPageLoader.defaults = {
