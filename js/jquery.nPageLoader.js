@@ -87,7 +87,7 @@
 			var speedBps = Math.round( bitsLoaded / duration );
 			var speedKbps = ( speedBps / 1024 ).toFixed(2);
 			var speedMbps = ( speedKbps / 1024 ).toFixed(2);
-			_downloadSpeed = speedBps;//speedKbps;
+			_downloadSpeed = speedBps;
 			this.log( "Your connection speed is: \n" +
 								duration + " s\n"   + 
 								speedBps + " bps\n"   + 
