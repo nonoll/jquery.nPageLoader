@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>jquery.nPageLoader</title>
+	<style>
+		body{ margin:0; padding:0; overflow: hidden; }
+		div.wrap { position: relative; }
+		
+		div.wrap > div.loading { position: fixed; width: 100%; height: 100%; background: #333; z-index: 200; }
+		div.wrap > div.loading > div.progress { position: absolute; width: 0%; height: 100%; background: #555; z-index: 300; }
+		div.wrap > div.loading > div.progress > h1 { color: white; float: right; padding-right: 10px; }
+
+		div.wrap > div.hitArea{ position: fixed; width: 100%; height: 100%; z-index: 150; }
+		div.wrap > div.hitArea.cursor_hand{ cursor: -webkit-grab; }
+		div.wrap > div.hitArea.drag_hand{ cursor: -webkit-grabbing; }
+
+		div.wrap > div.timeline { position: absolute; bottom: 0; clear: both; width: 100%; height: 5px; background: #000; z-index: 100; }
+		div.wrap > div.timeline > div.indicator { position: absolute; bottom: 0; width: 10%; height: 100%; background: #878787; }
+
+		div.wrap > div.back{ position: relative; width: 100%; height: 100%; cursor: pointer; }
+		div.wrap > div.back > img{ position: absolute; width: 100%; height: 100%; }
+		div.wrap > div.back_container { display: none; }
+	</style>
+	<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="js/jquery.nPageLoader.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
+</head>
+
+<body>
+<div class="wrap">
+	<div class="loading">
+		<div class="progress">
+			<h1></h1>
+		</div>
+	</div>
+
+	<div class="hitArea cursor_hand"></div>
+
+	<div class="timeline">
+		<div class="indicator"></div>
+	</div>
+
+	<div class="back">
+    	<img src="images/sequence/img_0000.jpg"/>
+    </div>
+    <div class="back_container"></div>
+</div>
+</body>
+</html>
